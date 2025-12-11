@@ -1,0 +1,42 @@
+# =============================================================================
+# Docker Compose Configuration for Medical Prediction System
+# =============================================================================
+
+version: '3.8'
+
+services:
+  dashboard:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: medical-prediction-dashboard
+    ports:
+      - "8050:8050"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ../data:/app/data:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8050/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - medical-net
+
+  # Optional: Add monitoring with Prometheus metrics
+  # prometheus:
+  #   image: prom/prometheus:latest
+  #   ports:
+  #     - "9090:9090"
+  #   networks:
+  #     - medical-net
+
+networks:
+  medical-net:
+    driver: bridge
+
+# For Jetson Orin with GPU support, use:
+# docker-compose -f docker-compose.jetson.yml up

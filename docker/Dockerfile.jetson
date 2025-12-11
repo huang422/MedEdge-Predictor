@@ -1,0 +1,49 @@
+# =============================================================================
+# Medical Prediction Dashboard - NVIDIA Jetson Orin Specific Configuration
+# This Dockerfile is optimized for ARM64 architecture with NVIDIA GPU support
+# =============================================================================
+
+# NVIDIA L4T (Linux for Tegra) base image for Jetson
+FROM nvcr.io/nvidia/l4t-pytorch:r35.2.1-pth2.0-py3
+
+# Metadata
+LABEL maintainer="Tom Huang"
+LABEL description="Medical Prediction Dashboard optimized for NVIDIA Jetson Orin"
+LABEL version="1.0.0"
+LABEL platform="linux/arm64"
+
+# Environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Set working directory
+WORKDIR /app
+
+# Install additional system dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt ./
+
+# Install Python dependencies
+RUN pip3 install --no-cache-dir --upgrade pip && \
+    pip3 install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY src/ ./src/
+COPY data/ ./data/
+
+# Expose dashboard port
+EXPOSE 8050
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8050/ || exit 1
+
+# Default command
+CMD ["python3", "-m", "src.dashboard.app"]

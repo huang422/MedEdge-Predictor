@@ -588,10 +588,6 @@ For questions, issues, or collaboration inquiries:
 
 - Developer: Tom Huang
 - Email: huang1473690@gmail.com
-For questions, issues, or collaboration inquiries:
-
-- Developer: Tom Huang
-- Email: huang1473690@gmail.com
 
 ---
 

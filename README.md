@@ -36,39 +36,39 @@ A comprehensive machine learning system designed for **real-time health predicti
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                        Medical Prediction System                             │
+│                        Medical Prediction System                            │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
+│                                                                             │
 │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐                   │
 │  │   Hospital   │    │    Data      │    │   Feature    │                   │
 │  │   Database   │───▶│ Preprocessing│───▶│ Engineering  │                   │
 │  │  (Private)   │    │              │    │              │                   │
 │  └──────────────┘    └──────────────┘    └──────────────┘                   │
-│                                                 │                            │
-│                    ┌────────────────────────────┼────────────────────────┐   │
-│                    │                            ▼                        │   │
-│                    │  ┌──────────────────────────────────────────────┐  │   │
-│                    │  │              ML Models (LightGBM)             │  │   │
-│                    │  ├──────────────┬──────────────┬────────────────┤  │   │
-│                    │  │ Heart Failure│  Hemoglobin  │   Dry Weight   │  │   │
-│                    │  │(Classification│ (Regression) │  (Regression)  │  │   │
-│                    │  │   Binary)    │    RMSE      │     RMSE       │  │   │
-│                    │  └──────────────┴──────────────┴────────────────┘  │   │
-│                    │                            │                        │   │
-│                    └────────────────────────────┼────────────────────────┘   │
-│                                                 ▼                            │
-│                    ┌─────────────────────────────────────────────────────┐   │
-│                    │              Real-time Dashboard (Dash)              │   │
-│                    │  • Patient monitoring    • Risk visualization       │   │
-│                    │  • Clinical metrics      • Decision support         │   │
-│                    └─────────────────────────────────────────────────────┘   │
-│                                                 │                            │
-│                                                 ▼                            │
-│                    ┌─────────────────────────────────────────────────────┐   │
-│                    │           NVIDIA Jetson Orin (Edge Device)           │   │
-│                    │              Docker Containerized                    │   │
-│                    └─────────────────────────────────────────────────────┘   │
-│                                                                              │
+│                                                 │                           │
+│                    ┌────────────────────────────┼────────────────────────┐  │
+│                    │                            ▼                        │  │
+│                    │  ┌──────────────────────────────────────────────┐   │  │
+│                    │  │              ML Models (LightGBM)            │   │  │
+│                    │  ├──────────────┬──────────────┬────────────────┤   │  │
+│                    │  │ Heart Failure│  Hemoglobin  │   Dry Weight   │   │  │
+│                    │  │(Classification│ (Regression)│  (Regression)  │   │  │
+│                    │  │   Binary)    │    RMSE      │     RMSE       │   │  │
+│                    │  └──────────────┴──────────────┴────────────────┘   │  │
+│                    │                            │                        │  │
+│                    └────────────────────────────┼────────────────────────┘  │
+│                                                 ▼                           │
+│                    ┌─────────────────────────────────────────────────────┐  │
+│                    │              Real-time Dashboard (Dash)             │  │
+│                    │  • Patient monitoring    • Risk visualization       │  │
+│                    │  • Clinical metrics      • Decision support         │  │
+│                    └─────────────────────────────────────────────────────┘  │
+│                                                 │                           │
+│                                                 ▼                           │
+│                    ┌─────────────────────────────────────────────────────┐  │
+│                    │           NVIDIA Jetson Orin (Edge Device)          │  │
+│                    │              Docker Containerized                   │  │
+│                    └─────────────────────────────────────────────────────┘  │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -550,11 +550,10 @@ This project is available for educational and portfolio demonstration purposes.
 ---
 
 ## Contact
+For questions, issues, or collaboration inquiries:
 
-**Tom Huang**
-
-- GitHub: [@huang422](https://github.com/huang422)
-- Email: [huang1473690@gmail.com]
+- Developer: Tom Huang
+- Email: huang1473690@gmail.com
 
 ---
 

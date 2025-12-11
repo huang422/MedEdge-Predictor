@@ -1,4 +1,4 @@
-# 血液透析病患醫療預測系統
+# Disease risk prediction model, deployed on NVIDIA Jetson Orin for real-time inference
 
 ## 專案概述
 

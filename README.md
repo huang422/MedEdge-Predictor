@@ -1,4 +1,4 @@
-# Medical Prediction System for Hemodialysis Patients
+# Disease risk prediction model, deployed on NVIDIA Jetson Orin for real-time inference
 
 ## Overview
 

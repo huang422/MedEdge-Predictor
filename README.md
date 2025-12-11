@@ -1,4 +1,11 @@
-# Disease risk prediction model, deployed on NVIDIA Jetson Orin for real-time inference
+# MedEdge-Predictor
+## Disease risk prediction model, deployed on NVIDIA Jetson Orin for real-time inference
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/downloads/)
+[![LightGBM](https://img.shields.io/badge/LightGBM-Model-green)](https://github.com/microsoft/LightGBM)
+[![Dash](https://img.shields.io/badge/Plotly-Dash-brightgreen)](https://dash.plotly.com/)
+[![Jetson Orin](https://img.shields.io/badge/Edge_AI-NVIDIA_Jetson_Orin-teal)](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/)
+[![Docker](https://img.shields.io/badge/Docker-Containerized-blue)](https://www.docker.com/)
 
 ## Overview
 
@@ -37,13 +44,40 @@ A comprehensive machine learning system designed for **real-time health predicti
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                        Medical Prediction System                            │
+│                        Medical Prediction System                            │
 ├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
 │                                                                             │
 │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐                   │
 │  │   Hospital   │    │    Data      │    │   Feature    │                   │
 │  │   Database   │───▶│ Preprocessing│───▶│ Engineering  │                   │
 │  │  (Private)   │    │              │    │              │                   │
 │  └──────────────┘    └──────────────┘    └──────────────┘                   │
+│                                                 │                           │
+│                    ┌────────────────────────────┼────────────────────────┐  │
+│                    │                            ▼                        │  │
+│                    │  ┌──────────────────────────────────────────────┐   │  │
+│                    │  │              ML Models (LightGBM)            │   │  │
+│                    │  ├──────────────┬──────────────┬────────────────┤   │  │
+│                    │  │ Heart Failure│  Hemoglobin  │   Dry Weight   │   │  │
+│                    │  │(Classification│ (Regression)│  (Regression)  │   │  │
+│                    │  │   Binary)    │    RMSE      │     RMSE       │   │  │
+│                    │  └──────────────┴──────────────┴────────────────┘   │  │
+│                    │                            │                        │  │
+│                    └────────────────────────────┼────────────────────────┘  │
+│                                                 ▼                           │
+│                    ┌─────────────────────────────────────────────────────┐  │
+│                    │              Real-time Dashboard (Dash)             │  │
+│                    │  • Patient monitoring    • Risk visualization       │  │
+│                    │  • Clinical metrics      • Decision support         │  │
+│                    └─────────────────────────────────────────────────────┘  │
+│                                                 │                           │
+│                                                 ▼                           │
+│                    ┌─────────────────────────────────────────────────────┐  │
+│                    │           NVIDIA Jetson Orin (Edge Device)          │  │
+│                    │              Docker Containerized                   │  │
+│                    └─────────────────────────────────────────────────────┘  │
+│                                                                             │
 │                                                 │                           │
 │                    ┌────────────────────────────┼────────────────────────┐  │
 │                    │                            ▼                        │  │
@@ -550,6 +584,10 @@ This project is available for educational and portfolio demonstration purposes.
 ---
 
 ## Contact
+For questions, issues, or collaboration inquiries:
+
+- Developer: Tom Huang
+- Email: huang1473690@gmail.com
 For questions, issues, or collaboration inquiries:
 
 - Developer: Tom Huang

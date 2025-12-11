@@ -1,4 +1,11 @@
-# Disease risk prediction model, deployed on NVIDIA Jetson Orin for real-time inference
+# # MedEdge-Predictor
+## 血液透析病患醫療預測系統
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/downloads/)
+[![LightGBM](https://img.shields.io/badge/LightGBM-Model-green)](https://github.com/microsoft/LightGBM)
+[![Dash](https://img.shields.io/badge/Plotly-Dash-brightgreen)](https://dash.plotly.com/)
+[![Jetson Orin](https://img.shields.io/badge/Edge_AI-NVIDIA_Jetson_Orin-teal)](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/)
+[![Docker](https://img.shields.io/badge/Docker-Containerized-blue)](https://www.docker.com/)
 
 ## 專案概述
 
@@ -37,13 +44,43 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                           醫療預測系統架構                                     │
+│                           醫療預測系統架構                                     │
 ├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
 │                                                                             │
 │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐                   │
 │  │    醫院       │    │    資料      │    │    特徵       │                   │
 │  │   資料庫      │───▶│   前處理      │───▶│    工程       │                   │
 │  │   (私有)      │    │              │    │              │                   │
+│  │    醫院       │    │    資料      │    │    特徵       │                   │
+│  │   資料庫      │───▶│   前處理      │───▶│    工程       │                   │
+│  │   (私有)      │    │              │    │              │                   │
 │  └──────────────┘    └──────────────┘    └──────────────┘                   │
+│                                                 │                           │
+│                    ┌────────────────────────────┼────────────────────────┐  │
+│                    │                            ▼                        │  │
+│                    │  ┌──────────────────────────────────────────────┐   │  │
+│                    │  │            機器學習模型 (LightGBM)             │   │  │
+│                    │  ├──────────────┬──────────────┬────────────────┤   │  │
+│                    │  │   心衰竭     │    血紅素    │     乾體重     │  │   │  │
+│                    │  │  (二元分類)  │   (迴歸)     │    (迴歸)      │  │   │  │
+│                    │  │    AUC       │    RMSE      │     RMSE       │   │  │
+│                    │  └──────────────┴──────────────┴────────────────┘   │  │
+│                    │                            │                        │  │
+│                    └────────────────────────────┼────────────────────────┘  │
+│                                                 ▼                           │
+│                    ┌─────────────────────────────────────────────────────┐  │
+│                    │            即時儀表板 (Plotly Dash)                   │  │
+│                    │  • 病患監控          • 風險視覺化                      │  │
+│                    │  • 臨床指標          • 決策支援                        │  │
+│                    └─────────────────────────────────────────────────────┘  │
+│                                                 │                           │
+│                                                 ▼                           │
+│                    ┌─────────────────────────────────────────────────────┐  │
+│                    │           NVIDIA Jetson Orin (邊緣設備)              │  │
+│                    │               Docker 容器化部署                       │  │
+│                    └─────────────────────────────────────────────────────┘  │
+│                                                                             │
 │                                                 │                           │
 │                    ┌────────────────────────────┼────────────────────────┐  │
 │                    │                            ▼                        │  │
@@ -550,6 +587,10 @@ lgbm_regression_params = {
 ---
 
 ## 聯絡方式
+For questions, issues, or collaboration inquiries:
+
+- Developer: Tom Huang
+- Email: huang1473690@gmail.com
 For questions, issues, or collaboration inquiries:
 
 - Developer: Tom Huang

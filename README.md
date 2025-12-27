@@ -6,6 +6,7 @@
 [![Dash](https://img.shields.io/badge/Plotly-Dash-brightgreen)](https://dash.plotly.com/)
 [![Jetson Orin](https://img.shields.io/badge/Edge_AI-NVIDIA_Jetson_Orin-teal)](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/)
 [![Docker](https://img.shields.io/badge/Docker-Containerized-blue)](https://www.docker.com/)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/huang422)
 
 ## Overview
 
@@ -596,3 +597,4 @@ For questions, issues, or collaboration inquiries:
 - Hospital partner for providing the clinical data and domain expertise
 - NVIDIA for Jetson Orin edge computing platform
 - Open source community for the excellent ML libraries
+
